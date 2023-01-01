@@ -1,7 +1,7 @@
 function Following() {
     return (
         <>
-            <h1>Following Page</h1>
+            <h1>Page Following</h1>
         </>
     );
 }

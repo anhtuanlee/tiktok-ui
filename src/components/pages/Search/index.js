@@ -1,7 +1,7 @@
 function Search() {
     return (
         <>
-            <h1>Search Page</h1>
+            <h1>Page Search</h1>
         </>
     );
 }

@@ -1,34 +1,31 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { publishRoutes } from './rotes/index';
-import { DefaultLayout } from './component/Layout';
+import { publishRoutes } from './routes';
+import { DefaultLayout } from './components/Layout';
 import { Fragment } from 'react';
+
 function App() {
     return (
         <Router>
             <div className="App">
                 <Routes>
                     {publishRoutes.map((route, index) => {
-                        let Layout;
-
-                        if (route.layout === null) {
-                            Layout = Fragment;
-                        } else if (route.layout) {
+                        const Pages = route.component;
+                        let Layout = DefaultLayout;
+                        if (route.layout) {
                             Layout = route.layout;
-                        } else {
-                            Layout = DefaultLayout;
+                        } else if (route.layout === null) {
+                            // null => no tag
+                            Layout = Fragment;
                         }
-
-                        const Page = route.component; // Phai dat ten Component la Chu in Hoa
-
                         return (
                             <Route
-                                key={index}
                                 path={route.path}
                                 element={
                                     <Layout>
-                                        <Page />
+                                        <Pages />
                                     </Layout>
                                 }
+                                key={index}
                             />
                         );
                     })}
