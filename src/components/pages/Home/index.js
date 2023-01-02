@@ -1,7 +1,7 @@
 function Home() {
     return (
         <>
-            <h1>Page Home</h1>
+            <h1 style={{ color: 'red' }}>Page Home</h1>
         </>
     );
 }

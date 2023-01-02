@@ -19,13 +19,16 @@
 }
 .logo {
 }
+.search_result,
+.search {
+    width: 361px;
+}
 .search {
     position: relative;
     display: flex;
     z-index: 1;
     overflow: hidden;
     height: var(--search-high);
-    width: 361px;
     border-radius: var(--search-border-radius);
     background-color: rgba(22, 24, 35, 0.06);
     border: 1.5px solid transparent;
@@ -78,4 +81,12 @@
     &:active {
         background: rgba(22, 24, 35, 0.06);
     }
+}
+.search_title {
+    height: 30px;
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 0.5);
 }

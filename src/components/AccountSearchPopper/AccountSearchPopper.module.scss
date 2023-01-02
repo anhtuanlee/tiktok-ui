@@ -1,0 +1,40 @@
+.wrapper {
+    display: flex;
+    padding: 9px 16px;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+        cursor: pointer;
+    }
+}
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+.info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+.account {
+    display: flex;
+    flex-direction: column;
+}
+.search_title {
+}
+.name_account {
+    font-size: 1.4rem;
+    line-height: 22px;
+    font-weight: 600;
+}
+.user_account {
+    font-size: 1.3rem;
+    line-height: 20px;
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 400;
+}
+.check {
+    color: rgb(32, 213, 236);
+    margin: 0 6px;
+}
