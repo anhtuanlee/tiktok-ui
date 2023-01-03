@@ -2,9 +2,8 @@
     width: 100%;
     box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
     border-radius: 8px;
-    padding-top: 8px;
+    padding: 8px 0;
     background-color: rgb(255, 255, 255);
     box-sizing: border-box;
-    max-height: min((100vh - 96px) - 60px);
-    height: 300px;
+    max-height: min((100vw - 96px) - 60px);
 }

@@ -1,0 +1,16 @@
+//Menu
+.menu_container {
+    width: 224px;
+    display: flex;
+    flex-direction: column;
+    .item_menu {
+        display: inline-flex;
+        align-items: center;
+        background-color: var(--transparent);
+        padding: 10px 8px 10px 16px;
+        min-height: 46px;
+        &:hover {
+            background-color: rgba(22, 24, 35, 0.03);
+        }
+    }
+}
