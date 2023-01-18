@@ -3,6 +3,7 @@
     width: 224px;
     display: flex;
     flex-direction: column;
+    font-size: 20px;
     .item_menu {
         display: inline-flex;
         align-items: center;
@@ -13,4 +14,28 @@
             background-color: rgba(22, 24, 35, 0.03);
         }
     }
+}
+// Header Menu
+.header_container {
+    position: relative;
+    height: 50px;
+}
+.header_content {
+    font-weight: 700;
+    font-size: 1.6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.header_icon_back {
+    margin-left: 20px;
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.saparete {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
 }

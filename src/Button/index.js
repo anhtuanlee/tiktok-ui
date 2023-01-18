@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './Button.module.scss';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { QuestionAndFeedback, UserIconHeader } from '../components/Icons';
 const CX = classNames.bind(styles);
 
 function Button({
@@ -18,7 +18,8 @@ function Button({
     disabled,
     // spacer margin button
     leftIcon = false,
-    rightIcon,
+    rightIcon = false,
+    Icons,
     sizes,
     onClick,
     ...passProps
@@ -57,14 +58,25 @@ function Button({
         //Spacer Icon
         sizes,
     });
-    let Icons;
-
     return (
         <Comp className={classes} {...props}>
-            {leftIcon && <FontAwesomeIcon className={CX('icon_left')} icon={leftIcon} />}{' '}
-            {/* Custom Ion Local */}
+            {leftIcon && (
+                <span>
+                    <FontAwesomeIcon className={CX('icon_left')} icon={leftIcon} />
+                </span>
+            )}
+
+            {Icons && (
+                <span>
+                    <Icons classes={CX('icon_header_tippy')} />
+                </span>
+            )}
             {children}
-            {rightIcon && <FontAwesomeIcon className={CX('icon_right')} icon={rightIcon} />}
+            {rightIcon && (
+                <span>
+                    <FontAwesomeIcon className={CX('icon_right')} icon={rightIcon} />
+                </span>
+            )}
         </Comp>
     );
 }
