@@ -3,25 +3,23 @@ import styles from './AccountSearchPopper.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import Image from '../Image';
+import { Link } from 'react-router-dom';
 const CX = classNames.bind(styles);
 
-function AccountSearchPopper({ children }) {
+function AccountSearchPopper({ result }) {
     return (
-        <div className={CX('wrapper')}>
+        <Link to={`/@/${result.nickname}`} className={CX('wrapper')}>
             <div className={CX('info')}>
-                <Image
-                    className={CX('avatar')}
-                    src="https://khoinguonsangtao.vn/wp-content/uploads/2022/08/hinh-nen-gai-xinh.jpg"
-                />
+                <Image className={CX('avatar')} src={result.avatar} />
                 <div className={CX('account')}>
                     <div className={CX('name_account')}>
-                        Nguyen Hoai Ngoc
+                        {result.full_name}
                         <FontAwesomeIcon icon={faCircleCheck} className={CX('check')} />
                     </div>
-                    <span className={CX('user_account')}>User1</span>
+                    <span className={CX('user_account')}>{result.nickname}</span>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 }
 
