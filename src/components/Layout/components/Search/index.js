@@ -3,10 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
+
 import { AccountPopper } from '../../../AccountSearchPopper';
 import { PopperWrapper } from '../../../Popper';
 import styles from './Search.module.scss';
 import { useDebounce } from '../../../hooks';
+import { SearchApi } from '../../../../ServiceApi/SearchApi';
+
 const CX = classNames.bind(styles);
 
 function Search() {
@@ -19,7 +22,10 @@ function Search() {
     const debounce = useDebounce(searchValue, 500);
 
     const handleTextValue = (e) => {
-        setSearchValue(e.target.value);
+        const value = e.target.value; /* 
+        const stringArray = value.split('');
+        stringArray[0] !== ' ' ? setSearchValue(value) : setSearchValue(''); */
+        !value.startsWith(' ') ? setSearchValue(value) : setSearchValue('');
         setShowResult(true);
     };
     const handleClear = () => {
@@ -42,16 +48,15 @@ function Search() {
             return;
         }
         setLoading(true);
-        fetch(
-            `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-                debounce,
-            )}&type=less`,
-        )
-            .then((res) => res.json())
-            .then((res) => {
-                setLoading(false);
-                setSearchVisible(res.data);
-            });
+
+        const fetchApi = async () => {
+            setLoading(true);
+            const result = await SearchApi(debounce, 'less');
+            setSearchVisible(result.data);
+
+            setLoading(false);
+        };
+        fetchApi();
     }, [debounce]);
     return (
         <Tippy

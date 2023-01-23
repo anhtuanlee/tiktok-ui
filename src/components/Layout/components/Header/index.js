@@ -22,7 +22,8 @@ import {
     UserIconHeader,
 } from '../../../Icons';
 import Search from '../Search';
-
+import { Link } from 'react-router-dom';
+import { default as routesConfig } from '../../../../config/route';
 const CX = classNames.bind(styles);
 
 function Header() {
@@ -60,7 +61,7 @@ function Header() {
         {
             icon: QuestionAndFeedback,
             title: 'Feedback and help',
-            to: '/Feedback',
+            to: routesConfig.feedback,
         },
         {
             icon: ShortCut,
@@ -72,7 +73,7 @@ function Header() {
         {
             icon: UserIconHeader,
             title: 'Profile',
-            to: '/Profile',
+            to: routesConfig.profile,
         },
         {
             icon: GetCoins,
@@ -96,8 +97,10 @@ function Header() {
     return (
         <header className={CX('wrapper')}>
             <div className={CX('inner')}>
-                <div className={CX('logo')}>
-                    <Image src={images.logo} alt="TikTok" fallback={images.noImage} />
+                <div>
+                    <Link className={CX('logo')} to={routesConfig.home}>
+                        <Image src={images.logo} alt="TikTok" fallback={images.noImage} />
+                    </Link>
                 </div>
                 <Search />
                 <div className={CX('actions')}>

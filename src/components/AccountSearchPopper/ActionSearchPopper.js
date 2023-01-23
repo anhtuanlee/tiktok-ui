@@ -8,7 +8,7 @@ const CX = classNames.bind(styles);
 
 function AccountSearchPopper({ result }) {
     return (
-        <Link to={`/@/${result.nickname}`} className={CX('wrapper')}>
+        <Link to={`/${result.nickname}`} className={CX('wrapper')}>
             <div className={CX('info')}>
                 <Image className={CX('avatar')} src={result.avatar} />
                 <div className={CX('account')}>

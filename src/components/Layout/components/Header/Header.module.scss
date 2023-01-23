@@ -18,7 +18,10 @@
     align-items: center;
     justify-content: space-between;
 }
-
+.logo {
+    display: flex;
+    align-items: center;
+}
 .plus {
     margin: 0 8px;
 }
