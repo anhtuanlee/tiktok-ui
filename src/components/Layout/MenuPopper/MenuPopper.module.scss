@@ -3,6 +3,8 @@
     width: 224px;
     display: flex;
     flex-direction: column;
+    max-height: min((100vh - 96px) - 80px);
+    overflow-y: auto;
     font-size: 20px;
     .item_menu {
         display: inline-flex;
@@ -15,10 +17,17 @@
         }
     }
 }
+.menu_body {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
 // Header Menu
 .header_container {
     position: relative;
     height: 50px;
+    display: flex;
+    flex-shrink: 0;
 }
 .header_content {
     font-weight: 700;

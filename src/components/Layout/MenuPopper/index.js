@@ -52,7 +52,7 @@ function Menu({ children, items = [], title, onHandle = defaultFn }) {
                         {itemChildren.length > 1 && (
                             <HeaderMenu title={title} handleBack={handleBack} />
                         )}
-                        {renderItem}
+                        <div className={CX('menu_body')}>{renderItem}</div>
                     </div>
                 </PopperWrapper>
             )}
