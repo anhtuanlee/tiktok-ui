@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import Proptypes from 'prop-types';
 import styles from './AccountSearchPopper.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
@@ -22,5 +23,8 @@ function AccountSearchPopper({ result }) {
         </Link>
     );
 }
+AccountSearchPopper.propTypes = {
+    result: Proptypes.object.isRequired,
+};
 
 export default AccountSearchPopper;

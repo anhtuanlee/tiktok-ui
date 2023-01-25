@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
 import styles from './Button.module.scss';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -80,5 +81,20 @@ function Button({
         </Comp>
     );
 }
-
+Button.propTypes = {
+    children: PropTypes.node.isRequired,
+    to: PropTypes.string,
+    href: PropTypes.string,
+    primary: PropTypes.bool,
+    border: PropTypes.bool,
+    text: PropTypes.bool,
+    rounded: PropTypes.bool,
+    intoTop: PropTypes.bool,
+    disabled: PropTypes.bool,
+    leftIcon: PropTypes.string,
+    rightIcon: PropTypes.string,
+    Icons: PropTypes.func,
+    sizes: PropTypes.string,
+    onClick: PropTypes.func,
+};
 export default Button;

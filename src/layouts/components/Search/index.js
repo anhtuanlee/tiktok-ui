@@ -4,11 +4,11 @@ import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
 
-import { AccountPopper } from '../../../AccountSearchPopper';
-import { PopperWrapper } from '../../../Popper';
+import { AccountPopper } from '../../../components/AccountSearchPopper';
+import { PopperWrapper } from '../../../components/Popper';
 import styles from './Search.module.scss';
-import { useDebounce } from '../../../hooks';
-import { SearchApi } from '../../../../ServiceApi/SearchApi';
+import { useDebounce } from '../../../components/hooks';
+import { SearchApi } from '../../../Services/SearchApi';
 
 const CX = classNames.bind(styles);
 

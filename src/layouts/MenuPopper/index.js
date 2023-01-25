@@ -1,20 +1,20 @@
 import Tippy from '@tippyjs/react/headless'; // phai them headless
 import classNames from 'classnames/bind';
-
+import PropTypes from 'prop-types';
 import styles from './MenuPopper.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { PopperWrapper } from '../../Popper';
-import MenuItem from './MenuItem';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { PopperWrapper } from '../../components/Popper';
 import HeaderMenu from './HeaderMenu';
+import MenuItem from './MenuItem';
 
 const CX = classNames.bind(styles);
 const defaultFn = () => {};
-function Menu({ children, items = [], title, onHandle = defaultFn }) {
+function Menu({ children, items = [], onHandle = defaultFn }) {
     const [itemChildren, setItemChildren] = useState([{ data: items }]);
     const currentItem = itemChildren[itemChildren.length - 1];
-
+    const [currentTitle, setCurrentTitle] = useState('');
+    console.log(currentTitle);
     const handleBack = () => {
         setItemChildren((prev) => prev.slice(0, itemChildren.length - 1));
     };
@@ -28,6 +28,7 @@ function Menu({ children, items = [], title, onHandle = defaultFn }) {
                 data={item}
                 onClick={() => {
                     if (isChildren) {
+                        setCurrentTitle(item.title);
                         setItemChildren((prev) => [...prev, Child]);
                     } else {
                         onHandle(item);
@@ -50,7 +51,7 @@ function Menu({ children, items = [], title, onHandle = defaultFn }) {
                 <PopperWrapper>
                     <div className={CX('menu_container')} {...attrs} tabIndex="-1">
                         {itemChildren.length > 1 && (
-                            <HeaderMenu title={title} handleBack={handleBack} />
+                            <HeaderMenu title={currentTitle} handleBack={handleBack} />
                         )}
                         <div className={CX('menu_body')}>{renderItem}</div>
                     </div>
@@ -61,5 +62,10 @@ function Menu({ children, items = [], title, onHandle = defaultFn }) {
         </Tippy>
     );
 }
-
+Menu.propTypes = {
+    children: PropTypes.node.isRequired,
+    items: PropTypes.array,
+    title: PropTypes.string,
+    onHandle: PropTypes.func,
+};
 export default Menu;

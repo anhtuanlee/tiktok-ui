@@ -2,25 +2,25 @@ import Home from '../components/pages/Home';
 import Following from '../components/pages/Following';
 import Profile from '../components/pages/Profile';
 import Search from '../components/pages/Search';
-import { default as routesConfig } from '../config/route';
-import { HeaderOnly } from '../components/Layout';
+import config from '../config';
+import { HeaderOnly } from '../layouts';
 
 const publishRoutes = [
     {
-        path: routesConfig.home,
+        path: config.routes.home,
         component: Home,
     },
     {
-        path: routesConfig.following,
+        path: config.routes.following,
         component: Following,
     },
     {
-        path: routesConfig.profile,
+        path: config.routes.profile,
         component: Profile,
         layout: HeaderOnly,
     },
     {
-        path: routesConfig.search,
+        path: config.routes.search,
         component: Search,
         layout: null,
     },
